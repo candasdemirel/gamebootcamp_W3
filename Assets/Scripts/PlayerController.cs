@@ -15,13 +15,15 @@ namespace Controllers
         private Vector3 _moveRotation;
         private float _currentYRotationValue;                               //Temp rotation value from mouse input
         private bool _isJumping;
+        private Animator _animator;
 
 
-        public Transform enemy;
+      //  public Transform enemy;
         // Start is called before the first frame update
         private void Start()
         {
             _controller = GetComponent<CharacterController>();
+            _animator = GetComponent<Animator>();
         }
 
         // Update is called once per frame
@@ -51,19 +53,21 @@ namespace Controllers
                 }
             }
 
-            // transform.rotation = Quaternion.Euler(_moveRotation);               // rotasyonu _moveRotasyona eşitle
+            transform.rotation = Quaternion.Euler(_moveRotation);               // rotasyonu _moveRotasyona eşitle
 
+            /*
             Vector3 targetPostition = new Vector3(enemy.position.x,
                                        this.transform.position.y,
                                        enemy.position.z);
                     transform.LookAt(targetPostition);
-
+            */
 
             if (!_isJumping)
             {
                 _moveDirection.y += _moveDirection.y + Physics.gravity.y * _playerSettings.gravityScale * Time.deltaTime; //Y ekseni için gravity
             }
             _controller.Move(_moveDirection * Time.deltaTime * _playerSettings.moveSpeed);
+
         }
 
         /// <summary>
