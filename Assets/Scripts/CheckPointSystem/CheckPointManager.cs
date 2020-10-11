@@ -31,9 +31,9 @@ namespace CheckPointSystem
         {
             _lastPassedCheckPoint = id;
             GameManager.Instance().ChangeCheckPoint(_lastPassedCheckPoint);
-
             if (checkPoints.Count - 1 > id)
             {
+                EventManager.TriggerPlayAds(AdsPlacementType.bannerPlacement);
                 checkPoints[id + 1].isMyTurn = true;
             }
             else
@@ -83,7 +83,7 @@ namespace CheckPointSystem
 
         private void EndGame()
         {
-            Debug.Log("Level Complete");
+            EventManager.TriggerPlayAds(AdsPlacementType.rewardedVideo);
         }
     }
 }

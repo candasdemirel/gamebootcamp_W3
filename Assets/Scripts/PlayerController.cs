@@ -18,7 +18,6 @@ namespace Controllers
         private Animator _animator;
 
 
-      //  public Transform enemy;
         // Start is called before the first frame update
         private void Start()
         {
@@ -39,7 +38,7 @@ namespace Controllers
                 _moveDirection = new Vector3(0, _playerSettings.jumpForce, 0);
             }
 
-            //_currentYRotationValue += InputManager.Instance().horizontalInputValue;              // Döner kebap ekseninde dönüş için yatay hareket datası alıyoruz
+            _currentYRotationValue += InputManager.Instance().horizontalInputValue;              // Döner kebap ekseninde dönüş için yatay hareket datası alıyoruz
             _moveRotation = new Vector3(0, _currentYRotationValue, 0);
             _moveDirection = Quaternion.Euler(_moveRotation) * _moveDirection;  //rotasyon datası ile hareket vectorümüzü çarptık
 

@@ -6,3 +6,10 @@ public enum UIPanelTypes
     settingsPanel,
     scoreBoard
 }
+
+public enum AdsPlacementType
+{
+    rewardedVideo,
+    bannerPlacement,
+    intersitialAds
+}
